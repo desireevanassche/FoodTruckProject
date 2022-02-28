@@ -6,7 +6,6 @@ public class FoodTruck {
 	private int uniqueId;
 	private static int truckId = 1;
 	private double rating;
-	private double avgRating;
 
 	public FoodTruck() { // no arg
 
@@ -44,21 +43,6 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 
-	public double getAvgRating() {
-		return avgRating;
-	}
-
-	public void setAvgRating(double avgRating) {
-		this.avgRating = avgRating;
-	}
-
-//	public int getTruckId() {
-//		return truckId;
-//	}
-//
-//	public void setTruckId() {
-//		this.uniqueId = truckId; // removed ++
-//	}
 	public int getUniqueId() {
 		return uniqueId;
 	}
