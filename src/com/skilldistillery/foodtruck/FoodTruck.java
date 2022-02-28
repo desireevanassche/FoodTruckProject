@@ -16,6 +16,7 @@ public class FoodTruck {
 		this.name = name;
 		this.rating = rating;
 		this.foodType = foodType;
+		this.uniqueId = truckId;
 		truckId++;
 	}
 
@@ -51,25 +52,24 @@ public class FoodTruck {
 		this.avgRating = avgRating;
 	}
 
-	public int getTruckId() {
-		return truckId;
-	}
-
-	public void setTruckId() {
-		this.uniqueId = truckId; // removed ++ 
-	}
-
-	public String toString() {
-		String output = "Name: " + name + " Food type: " + foodType + " Rating: " + rating + " Unique ID: " + uniqueId;
-		return output;
-	}
-
+//	public int getTruckId() {
+//		return truckId;
+//	}
+//
+//	public void setTruckId() {
+//		this.uniqueId = truckId; // removed ++
+//	}
 	public int getUniqueId() {
 		return uniqueId;
 	}
 
 	public void setUniqueId(int uniqueId) {
 		this.uniqueId = uniqueId;
+	}
+
+	public String toString() {
+		String output = "Name: " + name + " Food type: " + foodType + " Rating: " + rating + " Truck ID: " + uniqueId;
+		return output;
 	}
 
 }
