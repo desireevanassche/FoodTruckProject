@@ -4,10 +4,10 @@ public class FoodTruck {
 	private String name;
 	private String foodType;
 	private int uniqueId;
-	private static int truckId = 1;
+	private static int truckId = 1; // start truck id count at 1
 	private double rating;
 
-	public FoodTruck() { // no arg
+	public FoodTruck() { // no arg will not compile without this 
 
 	}
 
@@ -15,8 +15,8 @@ public class FoodTruck {
 		this.name = name;
 		this.rating = rating;
 		this.foodType = foodType;
-		this.uniqueId = truckId;
-		truckId++;
+		this.uniqueId = truckId; //assign truckId to uniqueId - pointing at same reference? 
+		truckId++; // counter for truck id init
 	}
 
 	public String getName() {
