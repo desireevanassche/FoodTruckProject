@@ -1,6 +1,6 @@
 package com.skilldistillery.foodtruck;
 
-import java.util.*;
+import java.util.*; //imports java utility including math random and scanner 
 
 public class FoodTruckApp {
 
@@ -16,21 +16,21 @@ public class FoodTruckApp {
 				+ "\n that's okay too, just type \"quit\" \nand we will take you to the main menu.");
 		System.out.println("----------------------------------------------------------");
 
-		FoodTruck[] foodTruckArr = new FoodTruck[5];
+		FoodTruck[] foodTruckArr = new FoodTruck[5]; // Instantiated and array with 5 FoodTruck objects
 
-		boolean quit = false;
+		//boolean quit = false; if boolean is true break out of for loop - would not break out of loop at false 
 
-		for (int i = 0; i < foodTruckArr.length; i++) {
+		for (int i = 0; i < foodTruckArr.length; i++) { //iterate through the foodTruckArr array 
 
 			System.out.println("Enter the name of the food truck you want to rate: ");
-			String name = kb.nextLine();
+			String name = kb.nextLine(); //take user input for name 
 
-			if (name.equals("quit")) {
-				break;
+			if (name.equals("quit")) { 
+				break; // LL this worked better than a nested for loop 
 
-			} else {
+			} else { 
 
-				// foodTruckArr[i].setName(foodTruckName);
+				// foodTruckArr[i].setName(foodTruckName); // inital attempt to assign variable directly to array and set name
 				// }
 
 				System.out.println("What type of food is served at this food truck ?");
@@ -46,12 +46,12 @@ public class FoodTruckApp {
 
 				// foodTruckArr[i].setTruckId();
 				
-				foodTruckArr[i] = new FoodTruck(name, foodType, rating);
+				foodTruckArr[i] = new FoodTruck(name, foodType, rating);  //constructor with field variabels ? 
 
 			}
 		}
 
-		boolean menuLoop = true;
+		boolean menuLoop = true; // as long as true continue through loop 
 		while (menuLoop) {
 			
 			System.out.println();
@@ -72,11 +72,11 @@ public class FoodTruckApp {
 					System.out.println();
 
 					for (int j = 0; j < foodTruckArr.length; j++) {
-						if (foodTruckArr[j] == null) {
+						if (foodTruckArr[j] == null) { //!= causes a null error and will not compile 
 						break;
 						}
 
-						System.out.println(foodTruckArr[j].toString());
+						System.out.println(foodTruckArr[j].toString()); // utilize our toString from the FoodTruck class to display food truck data 
 						System.out.println();
 
 					}
@@ -94,33 +94,33 @@ public class FoodTruckApp {
 						if (foodTruckArr[j] == null) {
 							break;
 						}
-						sum += foodTruckArr[j].getRating();
-						count++;
+						sum += foodTruckArr[j].getRating(); // the sum increments adding in all the non null data in the array
+						count++; //counter counts all non null values and increments with each loop 
 					}
-					average = sum / count;
+					average = sum / count;  
 					System.out.println(average);
 					break;
 
 				case 3:
 
 					int winCount = 0;
-					double highest = foodTruckArr[0].getRating(); // start at the first food truck
+					double highest = foodTruckArr[0].getRating(); // HiLo start at the first food truck and iterate through all 
 
 					System.out.println(".......................................................");
 					System.out.println("..............    AND THE WINNER IS   ................. ");
 					System.out.println();
 
-					for (int j = 0; j < foodTruckArr.length; j++) {
+					for (int j = 0; j < foodTruckArr.length; j++) { 
 						if (foodTruckArr[j] != null) {
 //							break;
 							}
 
-						if (foodTruckArr[j].getRating() > highest) {
-							highest = foodTruckArr[j].getRating();
-							winCount = j;
+						if (foodTruckArr[j].getRating() > highest) { //if the next truck in the array is larger
+							highest = foodTruckArr[j].getRating(); // it will be come the highest ranked truck
+							winCount = j; // assigning j to a variable to use outside of the for loop 
 						}
 					}
-					System.out.println(foodTruckArr[winCount].toString());
+					System.out.println(foodTruckArr[winCount].toString()); // announce winner 
 					break;
 
 				case 4:
