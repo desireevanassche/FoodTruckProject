@@ -39,6 +39,9 @@ public class FoodTruckApp {
 			System.out.println("Out of 5 stars, how would you rate this food truck?");
 			foodTruckArr[i].setRating(kb.nextDouble());
 			kb.nextLine();
+
+			foodTruckArr[i].setTruckId();
+		
 		}
 
 		boolean menuLoop = true;
@@ -49,6 +52,7 @@ public class FoodTruckApp {
 			System.out.println("2. See Average rating of food trucks.");
 			System.out.println("3. Display the highest- ranked food truck.");
 			System.out.println("4. Quit application.");
+			System.out.println();
 			int menuChoice = kb.nextInt();
 
 			if (menuChoice < 5) {
@@ -57,56 +61,63 @@ public class FoodTruckApp {
 
 				case 1:
 					System.out.println("Your 2021 Food Truck Contenstants: ");
+					System.out.println();
 
 					for (int j = 0; j < foodTruckArr.length; j++) {
-						if (foodTruckArr[j] == null) {
-							break;
-						}
-						System.out.println(foodTruckArr[j].toString());
+						if (foodTruckArr[j] != null) {
 
+						System.out.println(foodTruckArr[j].toString());
+						System.out.println();
+						}
 					}
 					break;
 
 				case 2:
+
 					double sum = 0;
 					double average = 0;
 					int count = 0;
 
-					System.out.println("Ratings are: ");
+					System.out.println("The average rating of all the contestants: ");
+
 					for (int j = 0; j < foodTruckArr.length; j++) {
 						if (foodTruckArr[j] == null) {
 							break;
 						}
 						sum += foodTruckArr[j].getRating();
 						count++;
-						average = sum / count;
-						System.out.println(average);
 					}
+					average = sum / count;
+					System.out.println(average);
 					break;
+					
 
 				case 3:
 
 					int winCount = 0;
-					double highestR = foodTruckArr[0].getRating(); // start at the first food truck
+					double highest = foodTruckArr[0].getRating(); // start at the first food truck
 
-					System.out.println("The winner of the international Food Truck BAHAHAS is: ");
-					
+					System.out.println();
+					System.out.println("............ AND THE WINNER IS..........: ");
+
 					for (int j = 0; j < foodTruckArr.length; j++) {
 						if (foodTruckArr[j] == null) {
 							break;
 						}
 
-						if (foodTruckArr[j].getAvgRating() > highestR) {
-							highestR = foodTruckArr[j].getRating();
-							winCount = j; }	
+						if (foodTruckArr[j].getAvgRating() > highest) {
+							highest = foodTruckArr[j].getRating();
+							winCount = j;
 						}
+					}
 					System.out.println(foodTruckArr[winCount].toString());
 					break;
 
 				case 4:
+					
 					System.out.println("Good Bye");
 					menuLoop = false;
-					return;
+					break;
 
 				default:
 					System.out.println("Invalid entry please try again!");
@@ -114,9 +125,7 @@ public class FoodTruckApp {
 				}
 			}
 
-			}
-
-			kb.close();
 		}
-	}
 
+	kb.close();
+}}
